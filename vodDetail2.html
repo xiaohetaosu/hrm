@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="dns-prefetch" href="//apps.bdimg.com">
+		<meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="apple-mobile-web-app-title" content="我的网站">
+		<meta http-equiv="Cache-Control" content="no-siteapp">
+		<meta name="keywords" content="我的网站" />
+		<meta name="description" content="我的网站 " />
+		<title>我的网站</title>
+		<link rel='stylesheet' id='_bootstrap-css' href='skin/ecms082/css/bootstrap.min.css?ver=1.3' type='text/css' media='all' />
+		<link rel='stylesheet' id='_fontawesome-css' href='skin/ecms082/css/font-awesome.min.css?ver=1.3' type='text/css' media='all' />
+		<link rel='stylesheet' id='_main-css' href='skin/ecms082/css/main.css?ver=1.3' type='text/css' media='all' />
+		<link rel='stylesheet' id='_main-css' href='css/app.css' type='text/css' media='all' />
+		<script type='text/javascript' src='skin/ecms082/js/jquery.min.js?ver=1.3'></script>
+		<link rel="shortcut icon" href="skin/ecms082/images/favicon.ico">
+		<script src="js/jquery-1.8.3.js"></script>
+		<script src="js/config.js"></script>
+		<script src="js/deatil.js"></script>
+ 
+ 		<script src="https://cdn.jsdelivr.net/hls.js/latest/hls.min.js"></script>
+		<script type="text/javascript" src="ckplayer/ckplayer.js" charset="utf-8"></script>
+
+		<title></title>
+	</head>
+	<style>
+		td,th {
+			padding: 0;
+			width: 140px;
+			white-space: initial;
+			border: 1px` solid #A9A9A9;
+		}
+	</style>
+
+	<body class="container">
+
+        <div id="video_rect">
+            <div id="video_wrapper" style="width:100vw;height:10px;"></div>
+            
+            <!--<div class="play_pause_big" >
+                <div class="play_icon icon-big" ></div>
+            </div>     
+            <div class="play_pause_big" > 
+                <div class="pause_icon icon-big"></div>
+            </div>    -->
+        </div>
+		<div class="des_more" style="padding: 1em;">
+		<div class="user_icon details">
+				<img src="images/details/more_icon.png"  id="des_img"/>
+			</div>
+				<span style="color: greenyellow;" id="name_des">欢乐颂2：第1集</span><br />
+				<span>3万次</span>
+			
+		</div>
+		<div class="row clearfix eq_width_wrapper" style="display:none" id="movie">
+			<div class="col-md-4 column eq_width_src" id="mm1" style="float: left;width: 50%;">
+				<img id="moviePic" class="img-rounded" src="http://27.221.10.82:7070/poster/gitv//album//images/20161220/74/744a469820433306748fb98a9175732a.jpg" />
+
+			</div>
+			<div id="mm2" class="pre-scrollable eq_width_dest" style="float: left; width: 50%;white-space: inherit;">
+				<ol class="list-unstyled">
+					<h4 id="movieName">来说来说了</h4>
+					<li id="director">导演:</li>
+					<li id="role">演员:</li>
+					<li id="years">上映日期:</li>
+					<li id="movieDesc">影片简介:</li>
+				</ol>
+			</div>
+		</div>
+
+		<div class="container" id="selection_1" style="display: none;">
+			<h3 onscroll="no">选集</h3>
+			<div class="pre-scrollable" id="selection">
+				
+			</div>
+		</div>
+
+		<div class="container">
+			<h4>&nbsp;&nbsp;&nbsp;猜你喜欢</h4>
+			<div class="row clearfix eq_width_wrapper" style="display: inline;" onclick="test(this.id)">
+				<div class="col-md-4 column eq_width_src" style="float: left;width: 50%;">
+					<img id="recPic0" class="img-rounded" src="http://27.221.10.82:7070/poster/gitv//album//images/20161220/74/744a469820433306748fb98a9175732a.jpg" />
+
+				</div>
+				<div class="eq_width_dest" style="float: left; width: 50%;overflow: hidden;text-overflow: ellipsis;">
+					<ol class="list-unstyled">
+						<h3 id="recName0">推荐1</h3>
+						<li id="recDer0">导演:</li>
+						<li id="recRole0">演员:</li>
+						<li id="recYear0">上映日期:</li>
+						<li id="recCla0">影片类型:</li>
+					</ol>
+				</div>
+			</div>
+
+			<div class="row clearfix eq_width_wrapper" style="display: inline;" onclick="test(this.id)">
+				<div class="col-md-4 column eq_width_src" style="float: left;width: 50%;">
+					<img id="recPic1" class="img-rounded" src="http://27.221.10.82:7070/poster/gitv//album//images/20161220/74/744a469820433306748fb98a9175732a.jpg" />
+
+				</div>
+				<div class="eq_width_dest" style="float: left; width: 50%;overflow: hidden;text-overflow: ellipsis;">
+					<ol class="list-unstyled">
+						<h3 id="recName1">推荐2</h3>
+						<li id="recDer1">导演:</li>
+						<li id="recRole1">演员:</li>
+						<li id="recYear1">上映日期:</li>
+						<li id="recCla1">影片类型:</li>
+					</ol>
+				</div>
+			</div>
+
+			<div class="row clearfix eq_width_wrapper" style="display: inline;" onclick="test(this.id)">
+				<div class="col-md-4 column eq_width_src" style="float: left;width: 50%;">
+					<img id="recPic2" class="img-rounded" src="http://27.221.10.82:7070/poster/gitv//album//images/20161220/74/744a469820433306748fb98a9175732a.jpg" />
+
+				</div>
+				<div class="eq_width_dest" style="float: left; width: 50%;overflow: hidden;text-overflow: ellipsis;">
+					<ol class="list-unstyled">
+						<h3 id="recName2">推荐3</h3>
+						<li id="recDer2">导演:</li>
+						<li id="recRole2">演员:</li>
+						<li id="recYear2">上映日期:</li>
+						<li id="recCla2">影片类型:</li>
+					</ol>
+				</div>
+			</div>
+
+			<div class="row clearfix eq_width_wrapper" style="display: inline;" onclick="test(this.id)">
+				<div class="col-md-4 column eq_width_src" style="float: left;width: 50%;">
+					<img id="recPic3" class="img-rounded" src="http://27.221.10.82:7070/poster/gitv//album//images/20161220/74/744a469820433306748fb98a9175732a.jpg" />
+
+				</div>
+				<div class="eq_width_dest" style="float: left; width: 50%;overflow: hidden;text-overflow: ellipsis;">
+					<ol class="list-unstyled">
+						<h3 id="recName3">推荐4</h3>
+						<li id="recDer3">导演:</li>
+						<li id="recRole3">演员:</li>
+						<li id="recYear3">上映日期:</li>
+						<li id="recCla3">影片类型:</li>
+					</ol>
+				</div>
+			</div>
+
+			<div class="row clearfix eq_width_wrapper" style="display: inline;" onclick="test(this.id)">
+				<div class="col-md-4 column eq_width_src" style="float: left;width: 50%;">
+					<img id="recPic4" class="img-rounded" src="http://27.221.10.82:7070/poster/gitv//album//images/20161220/74/744a469820433306748fb98a9175732a.jpg" />
+
+				</div>
+				<div class="eq_width_dest" style="float: left; width: 50%;overflow: hidden;text-overflow: ellipsis;">
+					<ol class="list-unstyled">
+						<h3 id="recName4">推荐5</h3>
+						<li id="recDer4">导演:</li>
+						<li id="recRole4">演员:</li>
+						<li id="recYear4">上映日期:</li>
+						<li id="recCla4">影片类型:</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		window.onload = getDeatil;
+
+            function loadedHandler(){
+                                console.log("call loadedHandler()");
+                                CKobject.videoPlay();  	
+            }	
+
+			function  initPlayer(_guid) {
+				//			setInterval(function(){
+				//				alert(window.orientation + "iii"+window.orientationchange)
+				//			},2000)
+				
+				var moveieData = globalParmers.movieData.program.movieList;
+				var  guid = "http://118.122.88.230:1220/" + moveieData[_guid].guid.slice(25,moveieData[0].guid.length);
+//				var url = 'http://192.168.130.250:5050//vds21/data2//test/1939211.m3u8'; //这里填写m3u8的地址
+				var url = guid;
+				var flashvars = {
+					f: '/ckplayer/m3u8.swf',
+					a: encodeURIComponent(url),
+					s: 4,
+					c: 0,
+					p: 1
+				};
+				var params = { bgcolor: '#FFF', allowFullScreen: true, allowScriptAccess: 'always', wmode: 'transparent' };
+				var video = [url];
+				CKobject.embed('/ckplayer/ckplayer.swf', 'video_wrapper', 'ckplayer_video_wrapper', '100%', '100%', false, flashvars, video, params);
+
+				setTimeout(function(){ 
+					console.log("call videoPlay()")
+					CKobject.videoPlay(); }, 100 
+					);
+			
+                var w = $('#video_wrapper').width();
+                $('#video_wrapper').css("height", w * 9 / 16);
+
+
+                $('#video_rect').click(function(){
+                    console.log("click inside #video_rect")
+                })
+                
+                $('.play_icon').live("click", function(){
+                    console.log("click inside .play_icon")
+                    CKobject.videoPlay();
+                    setTimeout( function(){ $('.play_icon').css("visibility", "hidden"); }, 5000 )
+                
+                })
+
+                $('.play_icon').click(function(){
+                    console.log("click inside .play_icon")
+                    CKobject.videoPlay();
+                    setTimeout( function(){ $('.play_icon').css("visibility", "hidden"); }, 5000 )
+                })
+                $('.pause_icon').click(function(){
+                    console.log("click inside .pause_icon")
+                    CKobject.videoPause();
+                    setTimeout( function(){ $('.pause_icon').css("visibility", "hidden"); }, 5000 )                    
+                })                
+			}
+
+	</script>
+
+</html>

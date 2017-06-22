@@ -1,0 +1,67 @@
+.clearfix {display: block;}
+html[xmlns] .clearfix {display: block;}
+* html .clearfix {height: 11%;}
+.ldc-ul_cont{
+  position: relative;
+  cursor: pointer;
+  font-size: 11px;
+  padding: 0 0.2em;
+  position: relative;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: normal;
+  float: left;
+  margin-right: 8px;
+}
+.ldc-ul_cont img{
+	position: relative;
+  top: 4px;
+  padding: 0px;
+  margin: 0px 0px -0px 5px;
+  vertical-align: baseline;
+  display: inline;
+  float: none;
+  clear: both;
+  border: none;
+  background: transparent;
+  width: 16px;
+  height: 16px;
+  border-radius: 0px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+.ldc_red{
+border-radius:4px;
+  height: 25px;
+	border:1px
+solid #FF6B57;color:#FF6B57;margin-left:1px
+}
+
+
+.ldc_green{
+	border-radius:4px;
+color: #080;
+height: 25px;
+position:static;border:1px solid #080;
+}
+
+.ldc_red:hover{
+		background-color: #41C282;
+border-radius:4px;
+  height: 25px;
+	border:1px
+solid #FF6B57;color:#FF6B57;margin-left:1px
+}
+
+
+.ldc_green:hover{
+	background-color: #FF6B57;
+	border-radius:4px;
+color: #080;
+height: 25px;
+position:static;border:1px solid #080;
+}
+.plikeleft{
+	float:right;
+	margin:0px;
+}

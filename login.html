@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="apple-mobile-web-app-title" content="我的网站">
+		<meta http-equiv="Cache-Control" content="no-siteapp">
+		<meta name="keywords" content="" />
+		<meta name="description" content=" " />
+		<script src="js/jquery-1.8.3.js"></script>
+		<title>用户登录</title>
+		<style>
+			.html body {
+				-webkit-overflow-scrolling: touch;
+			}
+			
+			.bg_cla {
+				position: fixed;
+				background-image: url(images/login_images/login_bg.jpg);
+				background-position: center;
+			}
+			
+			.login_cla_icon {
+				position: relative;
+				top: 3rem;
+				z-index: 2;
+				background: url(images/login_images/login_icon.png);
+				height: 5rem;
+				width: 5rem;
+				left: 9rem;
+				background-size: cover;
+			}
+			
+			.login_input {
+				position: absolute;
+				background: url(images/login_images/login_input.png);
+				height: 2.8rem;
+				width: 16rem;
+				background-size: cover;
+			}
+			
+			.code{
+				background-color: transparent;
+				font-size: 1.7em;
+				border: 0;
+				outline: none;
+				width: 100%;
+				height: 100%;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body class="bg_cla">
+	<!--登录-->
+		<div class="login_cla_icon"></div>
+		<div class="login_form" style="position: relative;top: -12em;">
+			<div class="login_input user" style="top: 17rem;left: 3.3rem;">
+				<input  class="login_form code" placeholder="用户名" onfocus="$(this).style.borderBottomColor = "green" maxlength="13""/>
+			</div>
+			<div class="login_input password" style="top: 22rem;left: 3.3rem;">
+				<input  class="login_form code" placeholder="密码" type="password" maxlength="13"/>
+			</div>
+		</div>
+		<!--注册-->
+		
+		<!--切换登录与注册-->
+		
+	</body>
+
+</html>

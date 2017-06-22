@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="apple-mobile-web-app-title" content="我的网站">
+		<meta http-equiv="Cache-Control" content="no-siteapp">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="mobile-web-app-capable" content="yes">
+		 <meta name="full-screen" content="yes" />
+ 		 <meta name="x5-fullscreen" content="true" />
+
+		<meta name="screen-orientation" content="portrait">
+		<meta name="x5-orientation" content="portrait">
+		<meta name="browsermode" content="application">
+		<meta name="x5-page-mode" content="app">
+
+		<meta name="keywords" content="" />
+		<meta name="description" content=" " />
+		<script src="js/jquery-1.8.3.js"></script>
+		<!--<script src="js/jwplayer.js" type="text/javascript" charset="utf-8"></script>-->
+		<script src="https://cdn.jsdelivr.net/hls.js/latest/hls.min.js"></script>
+		<script type="text/javascript" src="ckplayer/ckplayer.js" charset="utf-8"></script>
+		<title>视频播放</title>
+	</head>
+	<style>
+		.html body {
+			-webkit-overflow-scrolling: touch;
+		}
+	</style>
+
+<script>
+
+function loadedHandler(){
+					console.log("call loadedHandler()");
+					CKobject.videoPlay();  	
+}	
+
+			document.ready = function (callback) {
+				//			setInterval(function(){
+				//				alert(window.orientation + "iii"+window.orientationchange)
+				//			},2000)
+				var u = navigator.userAgent;
+				if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) { //安卓手机
+					//alert("安卓手机");
+					phoneType = "android";
+					// 				return;
+				} else if (u.indexOf('iPhone') > -1) { //苹果手机
+					//alert("苹果手机")
+					phoneType = "iphone";
+					// 				return;
+				} else if (u.indexOf('Windows Phone') > -1) { //winphone手机
+					//alert("winphone手机");
+					phoneType = "windowsPhone"
+				}
+
+				// http://static.guojiang.tv/pc/video/sound/1/playlist.m3u8 这个地址也能用！
+
+				var url = 'http://192.168.130.250:5050//vds21/data2//test/1939211.m3u8'; //这里填写m3u8的地址
+				var flashvars = {
+					f: '/ckplayer/m3u8.swf',
+					a: encodeURIComponent(url),
+					s: 4,
+					c: 0,
+					p: 1
+				};
+				var params = { bgcolor: '#FFF', allowFullScreen: true, allowScriptAccess: 'always', wmode: 'transparent' };
+				var video = [url];
+				CKobject.embed('/ckplayer/ckplayer.swf', 'a1', 'ckplayer_a1', '100%', '100%', false, flashvars, video, params);
+				setTimeout(function(){ 
+					console.log("call videoPlay()")
+					CKobject.videoPlay(); }, 100 
+					);
+				
+				window.resizeTo(screen.availWidth, screen.availHeight)
+				console.log("screen.availWidth, screen.availHeight:" , screen.availWidth, screen.availHeight);
+
+			}
+
+function hideAddressBar()
+{
+    // if(!window.location.hash)
+    { 
+        if(document.height <= window.outerHeight + 10)
+        {
+            document.body.style.height = (window.outerHeight + 50) +'px';
+            setTimeout( function(){ window.scrollTo(0, 1); }, 50 );
+        }
+        else
+        {
+            setTimeout( function(){ window.scrollTo(0, 1); }, 0 ); 
+        }
+		 setTimeout( function(){ window.scrollTo(0, 1); }, 50 );
+    }
+} 
+ 
+window.addEventListener("load", hideAddressBar );
+// window.addEventListener("orientationchange", hideAddressBar );
+window.addEventListener('orientationchange', function(event){
+
+    if ( window.orientation == 180 || window.orientation==0 ) {
+		// 竖屏
+		$("#a1").css("width", "100%");
+		$("#a1").css("height", "100%");
+    }
+
+    if( window.orientation == 90 || window.orientation == -90 ) {
+		// 横屏
+		$("#a1").css("width", "100%");
+		$("#a1").css("height", "100%");
+    }
+	hideAddressBar();
+});
+
+//进入全屏
+function requestFullScreen() {
+    var de = document.documentElement;
+    if (de.requestFullscreen) {
+        de.requestFullscreen();
+    } else if (de.mozRequestFullScreen) {
+        de.mozRequestFullScreen();
+    } else if (de.webkitRequestFullScreen) {
+        de.webkitRequestFullScreen();
+    }
+}
+//退出全屏
+function exitFullscreen() {
+    var de = document;
+    if (de.exitFullscreen) {
+        de.exitFullscreen();
+    } else if (de.mozCancelFullScreen) {
+        de.mozCancelFullScreen();
+    } else if (de.webkitCancelFullScreen) {
+        de.webkitCancelFullScreen();
+    }
+}
+
+function launchIntoFullscreen(element) {
+  if(element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if(element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();
+  } else if(element.webkitRequestFullscreen) {
+    element.webkitRequestFullscreen();
+  } else if(element.msRequestFullscreen) {
+    element.msRequestFullscreen();
+  }
+}
+
+// Launch fullscreen for browsers that support it!
+launchIntoFullscreen(document.documentElement);
+
+ 	window.onload=function(){  
+		//  requestFullScreen();
+		 launchIntoFullscreen(document.documentElement);
+		 launchIntoFullscreen(document.getElementById("ckplayer_a1"));
+
+                // if(document.documentElement.scrollHeight <= document.documentElement.clientHeight) {  
+                //     bodyTag = document.getElementsByTagName('body')[0];  
+                //     bodyTag.style.height = document.documentElement.clientWidth / screen.width * screen.height + 'px';  
+                // }  
+                // setTimeout(function() {  
+                //     window.scrollTo(0, 30)  
+                // }, 0);  
+
+				// var elem = document.getElementById("a1");
+				// if (elem.requestFullscreen) {
+				// elem.requestFullscreen();
+				// }
+
+				document.location.href = "#";
+            };  
+
+	</script>
+
+	<body>
+		<div id="a1" style="width:100vw;height:100vh;"></div>
+		<!--<video preload="none" src="http://192.168.130.250:5050//vds21/data2//test/1939211.m3u8" style="width: 100%; height: 100%; min-height:260px; max-height:500px; display: block; position: relative;" autoplay webkit-playsinline>-->
+		</video>
+		
+	</body>
+
+</html>
